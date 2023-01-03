@@ -1,0 +1,22 @@
+:root {
+  --tkt-dark: #000000;
+  --tkt-blue: #4e59ff;
+  --tkt-red: #fa3a3a;
+  --tkt-gray: #686868;
+  --tkt-blue-light-gradient: gradient(
+    161.01deg,
+    #01f2cf -8.06%,
+    #99acff -8.05%,
+    #4e6efc 108.81%
+  );
+  --tkt-light-grey: #d6d6d6;
+  --tkt-blue-dark-gradient: linear-gradient(
+    161.01deg,
+    #01f2cf -8.06%,
+    #99acff -8.05%,
+    #5d79f2 108.81%
+  );
+  --tkt-super-light-grey: #f9f9f9;
+  --tkt-light-blue: #e8e9fa;
+  --tkt-white: #ffffff;
+}
