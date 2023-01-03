@@ -1,0 +1,42 @@
+<ng-container [ngSwitch]="true">
+  <div
+    *ngSwitchCase="buttonType === 'large'"
+    class="large-button-container"
+    (click)="navigateTo(buttonType)"
+  >
+    <img class="icon" [src]="icon" [alt]="iconName" />
+    <h2 class="button-text">{{ buttonText }}</h2>
+  </div>
+  <div
+    *ngSwitchCase="buttonType === 'little'"
+    class="little-button-container"
+    (click)="navigateTo(buttonType)"
+  >
+    <img class="icon" [src]="icon" [alt]="iconName" />
+    <h2 class="button-text">{{ buttonText }}</h2>
+  </div>
+  <div
+    *ngSwitchCase="buttonType === 'mobileDisplayNavbar'"
+    class="mobile-display-navbar-button-container"
+    (click)="navigateTo(buttonType)"
+  >
+    <img class="icon" [src]="icon" [alt]="iconName" />
+    <h2 class="button-text">{{ buttonText }}</h2>
+  </div>
+  <div
+    *ngSwitchCase="buttonType === 'mobileHideNavbar'"
+    class="mobile-hide-navbar-button-container"
+    (click)="navigateTo(buttonType)"
+  >
+    <img class="icon" [src]="icon" [alt]="iconName" />
+    <h2 class="button-text">{{ buttonText }}</h2>
+  </div>
+  <div
+    *ngSwitchCase="buttonType === 'goBack'"
+    class="go-back-button-container"
+    (click)="navigateTo(buttonType)"
+  >
+    <img class="icon" [src]="icon" [alt]="iconName" />
+    <h2 class="button-text">{{ buttonText }}</h2>
+  </div>
+</ng-container>

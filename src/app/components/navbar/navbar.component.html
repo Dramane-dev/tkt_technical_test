@@ -1,0 +1,32 @@
+<div class="navbar-container">
+  <div class="buttons-container">
+    <img
+      class="logo"
+      src="https://tkt.paris/wp-content/themes/tkt/assets/images/tkt-logo.svg"
+      alt="tkt logo"
+    />
+    <div>
+      <ng-container *ngFor="let button of buttons; let index = index">
+        <app-button
+          [buttonText]="button.text"
+          [buttonType]="button.type"
+          [iconName]="button.icon?.name"
+          [icon]="button.icon?.path"
+        ></app-button>
+      </ng-container>
+    </div>
+  </div>
+  <div class="navbar-footer">
+    <div class="picture-container">
+      <img
+        class="user-picture"
+        [src]="currentUserInformations.picture"
+        alt="user picture"
+      />
+    </div>
+    <div class="current-user-informations">
+      <div class="user-fullname">{{ currentUserInformations.fullname }}</div>
+      <div class="user-email">{{ currentUserInformations.email }}</div>
+    </div>
+  </div>
+</div>
