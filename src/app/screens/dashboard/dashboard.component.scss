@@ -1,0 +1,21 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 100%;
+
+  .navbar-column {
+    height: 100%;
+    padding: 2%;
+  }
+
+  .dashboard-column {
+    height: fit-content;
+    border: 1px solid var(--tkt-dark);
+
+    .welcome-title {
+      margin-left: 2.5%;
+      font-size: 26px;
+      font-weight: 500;
+    }
+  }
+}
