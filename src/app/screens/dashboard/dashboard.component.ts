@@ -68,8 +68,8 @@ export class DashboardComponent {
     },
   ];
 
-  public navigateTo(btnType: string): void {
-    console.log('navigate to dashboard! ', typeof btnType);
+  public navigateTo(companyId: number): void {
+    console.log('navigate to details/', companyId);
   }
 
   setDisplayList(show: boolean): void {
