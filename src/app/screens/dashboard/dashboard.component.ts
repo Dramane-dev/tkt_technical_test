@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EButtonType } from 'src/app/enum/EButtonTypes';
 import { IButton } from 'src/app/interfaces/IButton';
 import { ICompany } from 'src/app/interfaces/ICompany';
+import { CompanyServices } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   public welcomeTitle: string = 'Welcome on TKT dashboard!';
   public buttons: IButton[] = [
     {
@@ -67,6 +68,14 @@ export class DashboardComponent {
       results: [1, 2],
     },
   ];
+
+  constructor(private _companyServices: CompanyServices) {}
+
+  ngOnInit(): void {
+    this._companyServices
+      .getCompanies()
+      .subscribe((companies) => (this.companies = companies));
+  }
 
   public navigateTo(companyId: number): void {
     console.log('navigate to details/', companyId);
