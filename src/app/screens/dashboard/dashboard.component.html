@@ -3,6 +3,76 @@
     <app-navbar></app-navbar>
   </div>
   <div class="dashboard-column">
-    <h1 class="welcome-title">{{ welcomeTitle }}</h1>
+    <div class="welcome-container">
+      <h1 class="welcome-title">{{ welcomeTitle }}</h1>
+    </div>
+
+    <div class="select-buttons-container">
+      <ng-container *ngFor="let button of buttons; let index = index">
+        <app-button
+          class="button"
+          [buttonText]="button.text"
+          [buttonType]="button.type"
+          [iconName]="button.icon?.name"
+          [icon]="button.icon?.path"
+          (displayListEvent)="setDisplayList($event)"
+        ></app-button>
+      </ng-container>
+    </div>
+    <div class="board">
+      <div class="headers">
+        <ng-container *ngFor="let header of headers; let index = index">
+          <div class="header-name">{{ header }}</div>
+        </ng-container>
+      </div>
+      <ng-container *ngFor="let company of companies; let index = index">
+        <div class="rows">
+          <div class="company-name">{{ company.name }}</div>
+          <div class="company-siren">{{ company.siren }}</div>
+          <div class="company-sector">{{ company.sector.toUpperCase() }}</div>
+        </div>
+      </ng-container>
+      <!-- <table>
+            <thead>
+                <tr>
+                    <th>COMPANY</th>
+                    <th>N°SIREN</th>
+                    <th>CATEGORY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div class="row">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+                <tr class="card">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
   </div>
 </div>

@@ -4,4 +4,5 @@ export enum EButtonType {
   MOBILE_DISPLAY_NAVBAR = 'mobileDisplayNavbar',
   MOBILE_HIDE_NAVBAR = 'mobileHideNavbar',
   GO_BACK = 'goBack',
+  SELECT = 'select',
 }

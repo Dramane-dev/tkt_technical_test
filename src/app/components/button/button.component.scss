@@ -26,3 +26,73 @@
     align-self: center;
   }
 }
+
+.select-button-container {
+  position: relative;
+  border: 1px solid var(--tkt-dark);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    border-color: var(--tkt-blue);
+  }
+
+  .button-name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .requiredIcon {
+      width: 7px;
+      height: 5px;
+      margin-left: 4%;
+      margin-bottom: 15%;
+      align-self: center;
+      margin-right: 2.5%;
+    }
+  }
+
+  .select-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    height: 70%;
+  }
+
+  .input {
+    width: 95%;
+    padding: 1.5%;
+    border: none;
+    outline: none;
+  }
+
+  .button-text {
+    font-size: 14px;
+    font-weight: 500;
+    align-self: center;
+    margin-left: 2.5%;
+  }
+
+  .icon {
+    width: 10px;
+    height: 6px;
+    align-self: center;
+    margin-right: 2.5%;
+  }
+
+  .icon-selected {
+    transform: rotate(180deg);
+  }
+}
+
+.list {
+  padding: 1%;
+  height: 100px;
+  // border: 0.5px solid var(--tkt-dark);
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--tkt-white);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
