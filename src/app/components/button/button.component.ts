@@ -23,7 +23,7 @@ export class ButtonComponent {
     new EventEmitter<boolean>();
 
   public displayList: boolean = false;
-  public requiredIcon: string = '../../../assets/icons/required.png';
+  public requiredIcon: string = 'assets/icons/required.png';
 
   public navigateTo(btnType: string): void {
     console.log('navigate to dashboard! ', typeof btnType);

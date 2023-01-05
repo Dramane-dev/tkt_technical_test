@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
       type: EButtonType.SELECT,
       icon: {
         name: 'union',
-        path: '../../../assets/icons/nav-arrow-down.png',
+        path: 'assets/icons/nav-arrow-down.png',
       },
     },
     {
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
       type: EButtonType.SELECT,
       icon: {
         name: 'bell',
-        path: '../../../assets/icons/nav-arrow-down.png',
+        path: 'assets/icons/nav-arrow-down.png',
       },
     },
   ];

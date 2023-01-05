@@ -15,7 +15,7 @@ export class NavbarComponent {
       type: EButtonType.LARGE,
       icon: {
         name: 'union',
-        path: '../../../assets/icons/union.png',
+        path: 'assets/icons/union.png',
       },
     },
     {
@@ -23,7 +23,7 @@ export class NavbarComponent {
       type: EButtonType.LARGE,
       icon: {
         name: 'bell',
-        path: '../../../assets/icons/bell.png',
+        path: 'assets/icons/bell.png',
       },
     },
     {
@@ -31,13 +31,13 @@ export class NavbarComponent {
       type: EButtonType.LARGE,
       icon: {
         name: 'chat-bubble',
-        path: '../../../assets/icons/chat-bubble.png',
+        path: 'assets/icons/chat-bubble.png',
       },
     },
   ];
 
   public currentUserInformations: IUser = {
-    picture: '../../../assets/images/user-picture.png',
+    picture: 'assets/images/user-picture.png',
     fullname: 'Sophie L.',
     email: 'sophie.l@gmail.com',
   };
