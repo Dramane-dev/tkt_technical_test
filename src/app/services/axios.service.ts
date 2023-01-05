@@ -33,10 +33,7 @@ export class AxiosService {
   private _setupInterceptorsTo(axiosInstance: AxiosInstance): AxiosInstance {
     const onAxiosRequest = async (
       config: AxiosRequestConfig
-    ): Promise<AxiosRequestConfig> => {
-      console.log(config);
-      return config;
-    };
+    ): Promise<AxiosRequestConfig> => config;
     const onAxiosRequestError = (error: AxiosError): Promise<AxiosError> =>
       Promise.reject(error);
     const onAxiosResponse = (response: AxiosResponse) => response;

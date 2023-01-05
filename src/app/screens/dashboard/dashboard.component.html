@@ -32,47 +32,18 @@
           <div class="company-sector">{{ company.sector.toUpperCase() }}</div>
         </div>
       </ng-container>
-      <!-- <table>
-            <thead>
-                <tr>
-                    <th>COMPANY</th>
-                    <th>N°SIREN</th>
-                    <th>CATEGORY</th>
-                </tr>
-            </thead>
-            <tbody>
-                <div class="row">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                </div>
-                <tr class="card">
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-            </tbody>
-        </table> -->
+
+      <ng-template [ngIf]="isLoading$">
+        <ngx-typed-js
+          [strings]="['loading...']"
+          [shuffle]="true"
+          [loop]="true"
+          [showCursor]="false"
+          [typeSpeed]="50"
+        >
+          <h2 class="typing"></h2>
+        </ngx-typed-js>
+      </ng-template>
     </div>
   </div>
 </div>
