@@ -1,13 +1,20 @@
 <ng-container *ngIf="handsetScreen; else notHandsetScreen">
   <div class="handset-container">
-    <app-button
-      class="button"
-      [buttonText]="littleButton.text"
-      [buttonType]="littleButton.type"
-      [iconName]="littleButton.icon?.name"
-      [icon]="littleButton.icon?.path"
-      (displayListEvent)="setDisplayList($event)"
-    ></app-button>
+    <div class="navbar-column">
+      <img
+        class="logo"
+        src="https://tkt.paris/wp-content/themes/tkt/assets/images/tkt-logo.svg"
+        alt="tkt logo"
+      />
+      <app-button
+        class="button"
+        [buttonText]="littleButton.text"
+        [buttonType]="littleButton.type"
+        [iconName]="littleButton.icon?.name"
+        [icon]="littleButton.icon?.path"
+        (displayListEvent)="setDisplayList($event)"
+      ></app-button>
+    </div>
     <div class="handset-dashboard">
       <div class="dashboard-column">
         <div class="welcome-container">
@@ -26,6 +33,7 @@
             ></app-button>
           </ng-container>
         </div>
+
         <div class="board">
           <div class="headers">
             <ng-container *ngFor="let header of headers; let index = index">

@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     type: EButtonType.LITTLE,
     icon: {
       name: 'bell',
-      path: 'assets/icons/nav-arrow-down.png',
+      path: 'assets/icons/menu-scale.png',
     },
   };
   public buttons: IButton[] = [
@@ -67,6 +67,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this._responsive
         .observe(Breakpoints.HandsetPortrait)
         .subscribe((result) => {
+          console.log(result);
           if (result.matches) {
             this.handsetScreen = true;
           } else {
