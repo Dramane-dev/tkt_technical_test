@@ -1,9 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import {
+  BreakpointObserver,
+  BreakpointState,
+  Breakpoints,
+} from '@angular/cdk/layout';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+
 import { EButtonType } from 'src/app/enum/EButtonTypes';
 import { IButton } from 'src/app/interfaces/IButton';
 import { ICompany } from 'src/app/interfaces/ICompany';
 import { CompanyServices } from 'src/app/services/company.service';
+import { LoaderServices } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +19,16 @@ import { CompanyServices } from 'src/app/services/company.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+  public handsetScreen: boolean = false;
   public welcomeTitle: string = 'Welcome on TKT dashboard!';
+  public littleButton: IButton = {
+    text: '',
+    type: EButtonType.LITTLE,
+    icon: {
+      name: 'bell',
+      path: 'assets/icons/nav-arrow-down.png',
+    },
+  };
   public buttons: IButton[] = [
     {
       text: 'Selector',
@@ -32,66 +49,54 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ];
   public displayList: boolean = false;
   public headers: string[] = ['COMPANY', 'N°SIREN', 'CATEGORY'];
-  // public companies: ICompany[] = [
-  //   {
-  //     id: 1,
-  //     name: 'Reinger Inc',
-  //     sector: 'Services',
-  //     siren: 135694027,
-  //     results: [1, 2],
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Reinger Inc',
-  //     sector: 'Services',
-  //     siren: 135694027,
-  //     results: [1, 2],
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Reinger Inc',
-  //     sector: 'Services',
-  //     siren: 135694027,
-  //     results: [1, 2],
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Reinger Inc',
-  //     sector: 'Services',
-  //     siren: 135694027,
-  //     results: [1, 2],
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Reinger Inc',
-  //     sector: 'Services',
-  //     siren: 135694027,
-  //     results: [1, 2],
-  //   },
-  // ];
   public companies: ICompany[] = [];
-  public isLoading$: Observable<boolean> = new Observable<false>();
+  public isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
   private _subscriptions: Subscription = new Subscription();
 
-  constructor(private _companyServices: CompanyServices) {}
+  constructor(
+    private _responsive: BreakpointObserver,
+    private _companyServices: CompanyServices,
+    private _loaderServices: LoaderServices,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
     this._subscriptions.add(
-      this._companyServices
-        .getCompanies()
-        .subscribe((companies) => (this.companies = companies))
+      this._responsive
+        .observe(Breakpoints.HandsetPortrait)
+        .subscribe((result) => {
+          if (result.matches) {
+            this.handsetScreen = true;
+          } else {
+            this.handsetScreen = false;
+          }
+        })
+    );
+    this._subscriptions.add(
+      this._loaderServices
+        .getLoaderStatus()
+        .subscribe((loaderStatus) => this.isLoading$.next(loaderStatus))
+    );
+    this._subscriptions.add(
+      this._companyServices.getCompanies().subscribe((companies) => {
+        this.companies = companies;
+        this._loaderServices.setLoaderStatus(!this.isLoading$.value);
+      })
     );
   }
 
   public navigateTo(companyId: number): void {
-    console.log('navigate to details/', companyId);
+    this._router.navigate(['details', companyId]);
   }
 
-  setDisplayList(show: boolean): void {
+  public setDisplayList(show: boolean): void {
     this.displayList = show;
   }
 
   ngOnDestroy(): void {
+    this._subscriptions.add(this._loaderServices.setLoaderStatus(true));
     this._subscriptions.unsubscribe();
   }
 }

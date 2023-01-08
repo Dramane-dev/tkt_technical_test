@@ -1,0 +1,30 @@
+<!-- <ng-container *ngFor="let chart of charts.charts; let index = index">
+    <div class="charts-container">
+        <div class="header-name">{{ chart.name }}</div>
+        <div class="chart-container">
+            <canvas [attr.id]="chart.name">{{ chart }}</canvas>
+        </div>
+    </div>
+</ng-container> -->
+
+<div class="charts-container">
+  <div class="chart-container">
+    <div class="header-name">{{ charts.charts[0].name }}</div>
+    <canvas id="Chiffre d'affaire" style="height: 500px">{{ chart }}</canvas>
+  </div>
+
+  <div class="chart-container">
+    <div class="header-name">{{ charts.charts[1].name }}</div>
+    <canvas id="EBITDA">{{ chart }}</canvas>
+  </div>
+
+  <div class="chart-container">
+    <div class="header-name">{{ charts.charts[2].name }}</div>
+    <canvas id="Loss">{{ chart }}</canvas>
+  </div>
+
+  <div class="chart-container">
+    <div class="header-name">{{ charts.charts[3].name }}</div>
+    <canvas id="Margin">{{ chart }}</canvas>
+  </div>
+</div>

@@ -1,14 +1,13 @@
 <ng-container [ngSwitch]="true">
   <ng-template [ngSwitchCase]="buttonType === 'large'">
-    <div class="large-button-container" (click)="navigateTo(buttonType)">
+    <div class="large-button-container" (click)="navigateTo('')">
       <img class="icon" [src]="icon" [alt]="iconName" />
       <h2 class="button-text">{{ buttonText }}</h2>
     </div>
   </ng-template>
   <ng-template [ngSwitchCase]="buttonType === 'little'">
-    <div class="little-button-container" (click)="navigateTo(buttonType)">
+    <div class="little-button-container" (click)="navigateTo('')">
       <img class="icon" [src]="icon" [alt]="iconName" />
-      <h2 class="button-text">{{ buttonText }}</h2>
     </div>
   </ng-template>
   <ng-template [ngSwitchCase]="buttonType === 'mobileDisplayNavbar'">

@@ -4,15 +4,17 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class LoaderService {
+export class LoaderServices {
   private _loaderStatus$: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(true);
 
   constructor() {}
 
   public getLoaderStatus(): Observable<boolean> {
-    return new Observable((observer) =>
-      observer.next(this._loaderStatus$.value)
-    );
+    return this._loaderStatus$;
+  }
+
+  public setLoaderStatus(newLoaderStatus: boolean): void {
+    this._loaderStatus$.next(newLoaderStatus);
   }
 }

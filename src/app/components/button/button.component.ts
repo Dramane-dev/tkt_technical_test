@@ -6,6 +6,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { EButtonType } from 'src/app/enum/EButtonTypes';
 
 @Component({
@@ -18,15 +19,17 @@ export class ButtonComponent {
   @Input() buttonText: string = '';
   @Input() iconName: string | undefined = '';
   @Input() icon: string | undefined = '';
-  @ViewChild('input') input: ElementRef | undefined;
+  @ViewChild('input') input!: ElementRef;
   @Output() displayListEvent: EventEmitter<boolean> =
     new EventEmitter<boolean>();
+
+  constructor(private _router: Router) {}
 
   public displayList: boolean = false;
   public requiredIcon: string = 'assets/icons/required.png';
 
-  public navigateTo(btnType: string): void {
-    console.log('navigate to dashboard! ', typeof btnType);
+  public navigateTo(url: string): void {
+    this._router.navigate([url]);
   }
 
   public showAndHideList(): void {

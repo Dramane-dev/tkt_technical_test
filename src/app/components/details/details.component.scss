@@ -1,0 +1,42 @@
+.details {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 100%;
+
+  .navbar-column {
+    height: 100%;
+    padding: 2%;
+  }
+
+  .result-column {
+    .details-header-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .company-name-container {
+      margin-left: 3.5%;
+
+      .company-name-title {
+        font-size: 26px;
+        font-weight: 500;
+      }
+      .company-name-siren {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--tkt-grey);
+      }
+    }
+  }
+
+  .result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5%;
+    z-index: -1;
+  }
+}
