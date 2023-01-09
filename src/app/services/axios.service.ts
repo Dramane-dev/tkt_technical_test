@@ -37,10 +37,8 @@ export class AxiosService {
     const onAxiosRequestError = (error: AxiosError): Promise<AxiosError> =>
       Promise.reject(error);
     const onAxiosResponse = (response: AxiosResponse) => response;
-    const onAxiosResponseError = (error: AxiosError): Promise<AxiosError> => {
-      console.log(error);
-      return Promise.reject(error);
-    };
+    const onAxiosResponseError = (error: AxiosError): Promise<AxiosError> =>
+      Promise.reject(error);
 
     axiosInstance.interceptors.request.use(onAxiosRequest, onAxiosRequestError);
     axiosInstance.interceptors.response.use(

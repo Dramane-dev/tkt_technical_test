@@ -45,7 +45,6 @@ export class ChartComponent implements OnInit {
       this._responsive
         .observe(Breakpoints.HandsetPortrait)
         .subscribe((result) => {
-          console.log(result.matches);
           this.handsetScreen = result.matches ?? false;
         })
     );
