@@ -9,6 +9,7 @@ import { EButtonType } from 'src/app/enum/EButtonTypes';
 import { IButton } from 'src/app/interfaces/IButton';
 import { IUser } from 'src/app/interfaces/IUser';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,14 @@ import { Subscription } from 'rxjs';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   public handsetScreen: boolean = false;
+  public littleButton: IButton = {
+    text: '',
+    type: EButtonType.LITTLE,
+    icon: {
+      name: 'bell',
+      path: 'assets/icons/close.png',
+    },
+  };
   public buttons: IButton[] = [
     {
       text: 'DASHBOARD',
@@ -45,7 +54,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ];
   private _subscriptions: Subscription = new Subscription();
 
-  constructor(private _responsive: BreakpointObserver) {}
+  constructor(
+    private _responsive: BreakpointObserver,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
     this._subscriptions.add(
@@ -67,6 +79,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     fullname: 'Sophie L.',
     email: 'sophie.l@gmail.com',
   };
+
+  public navigateTo(url?: string, companyId?: number): void {
+    companyId
+      ? this._router.navigate([url, companyId])
+      : this._router.navigate([url]);
+  }
 
   ngOnDestroy(): void {
     this._subscriptions.unsubscribe();

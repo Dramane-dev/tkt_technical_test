@@ -88,8 +88,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     );
   }
 
-  public navigateTo(companyId: number): void {
-    this._router.navigate(['details', companyId]);
+  public navigateTo(url?: string, companyId?: number): void {
+    console.log(url + '/' + companyId);
+    companyId
+      ? this._router.navigate([url, companyId])
+      : this._router.navigate([url]);
   }
 
   public setDisplayList(show: boolean): void {

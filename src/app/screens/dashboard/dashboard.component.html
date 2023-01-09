@@ -12,57 +12,56 @@
         [buttonType]="littleButton.type"
         [iconName]="littleButton.icon?.name"
         [icon]="littleButton.icon?.path"
-        (displayListEvent)="setDisplayList($event)"
+        (click)="navigateTo('navbar')"
       ></app-button>
     </div>
-    <div class="handset-dashboard">
-      <div class="dashboard-column">
-        <div class="welcome-container">
-          <h1 class="welcome-title">{{ welcomeTitle }}</h1>
-        </div>
+    <div class="welcome-container">
+      <h1 class="welcome-title">{{ welcomeTitle }}</h1>
+    </div>
+  </div>
+  <div class="handset-dashboard">
+    <div class="dashboard-column">
+      <div class="select-buttons-container">
+        <ng-container *ngFor="let button of buttons; let index = index">
+          <app-button
+            class="button"
+            [buttonText]="button.text"
+            [buttonType]="button.type"
+            [iconName]="button.icon?.name"
+            [icon]="button.icon?.path"
+            (displayListEvent)="setDisplayList($event)"
+          ></app-button>
+        </ng-container>
+      </div>
 
-        <div class="select-buttons-container">
-          <ng-container *ngFor="let button of buttons; let index = index">
-            <app-button
-              class="button"
-              [buttonText]="button.text"
-              [buttonType]="button.type"
-              [iconName]="button.icon?.name"
-              [icon]="button.icon?.path"
-              (displayListEvent)="setDisplayList($event)"
-            ></app-button>
+      <div class="board">
+        <div class="headers">
+          <ng-container *ngFor="let header of headers; let index = index">
+            <div class="header-name">{{ header }}</div>
           </ng-container>
         </div>
 
-        <div class="board">
-          <div class="headers">
-            <ng-container *ngFor="let header of headers; let index = index">
-              <div class="header-name">{{ header }}</div>
-            </ng-container>
-          </div>
+        <ng-template [ngIf]="isLoading$ | async">
+          <ngx-typed-js
+            [strings]="['loading...']"
+            [shuffle]="true"
+            [loop]="true"
+            [showCursor]="false"
+            [typeSpeed]="50"
+          >
+            <h2 class="typing"></h2>
+          </ngx-typed-js>
+        </ng-template>
 
-          <ng-template [ngIf]="isLoading$ | async">
-            <ngx-typed-js
-              [strings]="['loading...']"
-              [shuffle]="true"
-              [loop]="true"
-              [showCursor]="false"
-              [typeSpeed]="50"
-            >
-              <h2 class="typing"></h2>
-            </ngx-typed-js>
-          </ng-template>
-
-          <ng-container *ngFor="let company of companies; let index = index">
-            <div class="rows" (click)="navigateTo(company.id)">
-              <div class="company-name">{{ company.name }}</div>
-              <div class="company-siren">{{ company.siren }}</div>
-              <div class="company-sector">
-                {{ company.sector.toUpperCase() }}
-              </div>
+        <ng-container *ngFor="let company of companies; let index = index">
+          <div class="rows" (click)="navigateTo('details', company.id)">
+            <div class="company-name">{{ company.name }}</div>
+            <div class="company-siren">{{ company.siren }}</div>
+            <div class="company-sector">
+              {{ company.sector.toUpperCase() }}
             </div>
-          </ng-container>
-        </div>
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
@@ -109,7 +108,7 @@
         </ng-template>
 
         <ng-container *ngFor="let company of companies; let index = index">
-          <div class="rows" (click)="navigateTo(company.id)">
+          <div class="rows" (click)="navigateTo('details', company.id)">
             <div class="company-name">{{ company.name }}</div>
             <div class="company-siren">{{ company.siren }}</div>
             <div class="company-sector">{{ company.sector.toUpperCase() }}</div>

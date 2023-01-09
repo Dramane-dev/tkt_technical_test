@@ -34,38 +34,40 @@
       <h2 class="button-text">{{ buttonText }}</h2>
     </div>
   </ng-template>
-  <ng-template [ngSwitchCase]="buttonType === 'select'">
-    <div class="select-button-container" (click)="showAndHideList()">
-      <div class="select-button">
-        <div class="button-name-container">
-          <h2 class="button-text" [class.button-text-selected]="displayList">
-            {{ buttonText }}
-          </h2>
-          <img class="requiredIcon" [src]="requiredIcon" alt="required" />
+  <div class="select-button-and-list-container">
+    <ng-template [ngSwitchCase]="buttonType === 'select'">
+      <div class="select-button-container" (click)="showAndHideList()">
+        <div class="select-button">
+          <div class="button-name-container">
+            <h2 class="button-text" [class.button-text-selected]="displayList">
+              {{ buttonText }}
+            </h2>
+            <img class="requiredIcon" [src]="requiredIcon" alt="required" />
+          </div>
+          <img
+            class="icon"
+            [class.icon-selected]="displayList"
+            [src]="icon"
+            [alt]="iconName"
+          />
         </div>
-        <img
-          class="icon"
-          [class.icon-selected]="displayList"
-          [src]="icon"
-          [alt]="iconName"
-        />
+        <ng-template [ngIf]="displayList">
+          <input class="input" type="text" placeholder="Help text" #input />
+        </ng-template>
       </div>
       <ng-template [ngIf]="displayList">
-        <input class="input" type="text" placeholder="Help text" #input />
+        <div class="list">
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+        </div>
       </ng-template>
-    </div>
-    <ng-template [ngIf]="displayList">
-      <div class="list">
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-        <p>1</p>
-      </div>
     </ng-template>
-  </ng-template>
+  </div>
 </ng-container>
