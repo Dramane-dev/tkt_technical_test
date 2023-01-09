@@ -10,6 +10,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-details.png?raw=true)
 ![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-menu.png?raw=true)
 
+<p align="center">
+  <img 
+     alt="mobile-home"
+     src="./app-screens/mobile-home.png"
+     style="margin-left: auto; margin-right: auto"
+     width="200" 
+     height="200"
+    />
+</p>
+
 ## Link of deployed project :
 
 [Tkt Technical Test](https://dramane.dev/tkt-technical-test)
