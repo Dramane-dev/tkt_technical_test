@@ -6,14 +6,29 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/home.png?raw=true)
 ![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/details.png?raw=true)
-![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-home.png?raw=true)
-![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-details.png?raw=true)
-![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-menu.png?raw=true)
 
 <p align="center">
   <img 
      alt="mobile-home"
      src="./app-screens/mobile-home.png"
+     style="margin-left: auto; margin-right: auto"
+     width="300" 
+     height="500"
+    />
+</p>
+<p align="center">
+  <img 
+     alt="mobile-home"
+     src="./app-screens/mobile-details.png"
+     style="margin-left: auto; margin-right: auto"
+     width="300" 
+     height="500"
+    />
+</p>
+<p align="center">
+  <img 
+     alt="mobile-home"
+     src="./app-screens/mobile-menu.png"
      style="margin-left: auto; margin-right: auto"
      width="300" 
      height="500"
