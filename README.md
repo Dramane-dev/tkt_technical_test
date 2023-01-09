@@ -4,11 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Screens views
 
-![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/develop/app-screens/home.png?raw=true)
-![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/develop/app-screens/details.png?raw=true)
-![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/develop/app-screens/mobile-home.png?raw=true)
-![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/develop/app-screens/mobile-details.png?raw=true)
-![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/develop/app-screens/mobile-menu.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/home.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/details.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-home.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-details.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt_technical_test/blob/develop/app-screens/mobile-menu.png?raw=true)
 
 ## Link of deployed project :
 
@@ -47,8 +47,6 @@ to generate a new component. You can also use
 ```ruby
 ng generate directive|pipe|service|class|guard|interface|enum|module
 ```
-
-.
 
 ## Build
 
