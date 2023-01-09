@@ -64,12 +64,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this._responsive
         .observe(Breakpoints.HandsetPortrait)
         .subscribe((result) => {
-          console.log(result);
-          if (result.matches) {
-            this.handsetScreen = true;
-          } else {
-            this.handsetScreen = false;
-          }
+          this.handsetScreen = result.matches ?? false;
         })
     );
   }

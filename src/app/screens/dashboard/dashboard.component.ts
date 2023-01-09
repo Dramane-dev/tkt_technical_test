@@ -67,12 +67,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this._responsive
         .observe(Breakpoints.HandsetPortrait)
         .subscribe((result) => {
-          console.log(result);
-          if (result.matches) {
-            this.handsetScreen = true;
-          } else {
-            this.handsetScreen = false;
-          }
+          this.handsetScreen = result.matches ?? false;
         })
     );
     this._subscriptions.add(
@@ -89,7 +84,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public navigateTo(url?: string, companyId?: number): void {
-    console.log(url + '/' + companyId);
     companyId
       ? this._router.navigate([url, companyId])
       : this._router.navigate([url]);

@@ -1,37 +1,79 @@
-<div class="details">
-  <div class="navbar-column">
-    <app-navbar></app-navbar>
-  </div>
-  <div class="result-column">
-    <div class="details-header-container">
-      <app-button
-        [buttonText]="button.text"
-        [buttonType]="button.type"
-        [iconName]="button.icon?.name"
-        [icon]="button.icon?.path"
-      ></app-button>
-      <div class="company-name-container">
-        <h1 class="company-name-title">{{ company.name }}</h1>
-        <p class="company-name-siren">N° SIREN {{ company.siren }}</p>
+<ng-container *ngIf="handsetScreen; else notHandsetScreen">
+  <div class="handset-container">
+    <div class="details">
+      <div class="navbar-column">
+        <app-button
+          class="button"
+          [buttonText]="littleButton.text"
+          [buttonType]="littleButton.type"
+          [iconName]="littleButton.icon?.name"
+          [icon]="littleButton.icon?.path"
+          (click)="navigateTo('navbar')"
+        ></app-button>
+        <div class="company-name-container">
+          <h1 class="company-name-title">{{ company.name }}</h1>
+          <p class="company-name-siren">N° SIREN {{ company.siren }}</p>
+        </div>
+      </div>
+      <ng-template [ngIf]="isLoading$ | async">
+        <ngx-typed-js
+          [strings]="['loading...']"
+          [shuffle]="true"
+          [loop]="true"
+          [showCursor]="false"
+          [typeSpeed]="50"
+        >
+          <h2 class="typing"></h2>
+        </ngx-typed-js>
+      </ng-template>
+
+      <div class="result">
+        <ng-template [ngIf]="financialResults">
+          <app-chart
+            style="width: 100%"
+            [financialResults]="financialResults"
+          ></app-chart>
+        </ng-template>
       </div>
     </div>
+  </div>
+</ng-container>
+<ng-template #notHandsetScreen>
+  <div class="details">
+    <div class="navbar-column">
+      <app-navbar></app-navbar>
+    </div>
+    <div class="result-column">
+      <div class="details-header-container">
+        <app-button
+          [buttonText]="button.text"
+          [buttonType]="button.type"
+          [iconName]="button.icon?.name"
+          [icon]="button.icon?.path"
+        ></app-button>
+        <div class="company-name-container">
+          <h1 class="company-name-title">{{ company.name }}</h1>
+          <p class="company-name-siren">N° SIREN {{ company.siren }}</p>
+        </div>
+      </div>
 
-    <ng-template [ngIf]="isLoading$ | async">
-      <ngx-typed-js
-        [strings]="['loading...']"
-        [shuffle]="true"
-        [loop]="true"
-        [showCursor]="false"
-        [typeSpeed]="50"
-      >
-        <h2 class="typing"></h2>
-      </ngx-typed-js>
-    </ng-template>
-
-    <div class="result">
-      <ng-template [ngIf]="financialResults">
-        <app-chart [financialResults]="financialResults"></app-chart>
+      <ng-template [ngIf]="isLoading$ | async">
+        <ngx-typed-js
+          [strings]="['loading...']"
+          [shuffle]="true"
+          [loop]="true"
+          [showCursor]="false"
+          [typeSpeed]="50"
+        >
+          <h2 class="typing"></h2>
+        </ngx-typed-js>
       </ng-template>
+
+      <div class="result">
+        <ng-template [ngIf]="financialResults">
+          <app-chart [financialResults]="financialResults"></app-chart>
+        </ng-template>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>

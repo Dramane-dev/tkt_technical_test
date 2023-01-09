@@ -1,9 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 import { Chart } from 'chart.js/auto';
 import { EResultTypes } from 'src/app/enum/EResultTypes';
 import { EYears } from 'src/app/enum/EYears';
 import { ICharts } from 'src/app/interfaces/ICharts';
 import { IFinancialResult } from 'src/app/interfaces/IFinancialResult';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chart',
@@ -11,11 +14,14 @@ import { IFinancialResult } from 'src/app/interfaces/IFinancialResult';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
+  public handsetScreen: boolean = false;
   public chart!: Chart;
   public charts!: ICharts;
+  private _subscriptions: Subscription = new Subscription();
+
   @Input() financialResults!: IFinancialResult[];
 
-  constructor() {
+  constructor(private _responsive: BreakpointObserver) {
     this.charts = {
       charts: [
         {
@@ -35,6 +41,14 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._subscriptions.add(
+      this._responsive
+        .observe(Breakpoints.HandsetPortrait)
+        .subscribe((result) => {
+          console.log(result.matches);
+          this.handsetScreen = result.matches ?? false;
+        })
+    );
     this.charts.charts.map((label) => this.createChart(label.name));
   }
 
@@ -53,6 +67,7 @@ export class ChartComponent implements OnInit {
         ],
       },
       options: {
+        responsive: true,
         scales: {
           y: {
             ticks: {
@@ -114,5 +129,9 @@ export class ChartComponent implements OnInit {
       default:
         return [];
     }
+  }
+
+  ngOnDestroy(): void {
+    this._subscriptions.unsubscribe();
   }
 }

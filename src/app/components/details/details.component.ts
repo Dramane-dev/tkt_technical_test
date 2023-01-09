@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, map, Observable, of, Subscription } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { IFinancialResult } from 'src/app/interfaces/IFinancialResult';
 import { ICharts } from 'src/app/interfaces/ICharts';
@@ -18,9 +19,18 @@ import { EButtonType } from 'src/app/enum/EButtonTypes';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit, OnDestroy {
+  public handsetScreen: boolean = false;
   public goBackIcon: IICon = {
     name: 'go back',
     path: 'assets/icons/back-row.png',
+  };
+  public littleButton: IButton = {
+    text: '',
+    type: EButtonType.LITTLE,
+    icon: {
+      name: 'bell',
+      path: 'assets/icons/back-row.png',
+    },
   };
   public button: IButton = {
     text: '',
@@ -40,7 +50,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
     private _companyServices: CompanyServices,
     private _financialResultServices: FinancialResultServices,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _responsive: BreakpointObserver
   ) {
     this.companyId = Number(this._route.snapshot.paramMap.get('companyId'));
     this.company = {
@@ -51,6 +62,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this._subscriptions.add(
+      this._responsive
+        .observe(Breakpoints.HandsetPortrait)
+        .subscribe((result) => {
+          this.handsetScreen = result.matches ?? false;
+        })
+    );
     this._subscriptions.add(
       this._loaderServices
         .getLoaderStatus()
@@ -81,6 +99,12 @@ export class DetailsComponent implements OnInit, OnDestroy {
           );
         })
     );
+  }
+
+  public navigateTo(url?: string, companyId?: number): void {
+    companyId
+      ? this._router.navigate([url, companyId])
+      : this._router.navigate([url]);
   }
 
   ngOnDestroy(): void {

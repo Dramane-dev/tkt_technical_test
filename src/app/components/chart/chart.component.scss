@@ -1,3 +1,31 @@
+.handset-charts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .chart-container {
+    position: relative;
+    margin: auto;
+    height: fit-content;
+    width: 90vw;
+    margin: 2.5%;
+    padding: 2.5%;
+    border: 0.5px solid var(--tkt-dark);
+    border-radius: 5px;
+
+    .header-name {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 10%;
+    }
+
+    .chart {
+      height: 500px;
+    }
+  }
+}
+
 .charts-container {
   display: flex;
   flex-direction: row;
