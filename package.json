@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-with-browser": "ng serve --open",
     "start-with-proxy": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "buildProd": "ng build --base-href 'https://dramane.dev/tkt-technical-test/'",

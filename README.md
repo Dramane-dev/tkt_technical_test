@@ -1,10 +1,38 @@
-# TktTechnicalTest
+# [Tkt Technical Test]
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
-## Development server
+## Screens views
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/master/app-screens/home.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/master/app-screens/details.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/master/app-screens/mobile-home.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/master/app-screens/mobile-details.png?raw=true)
+![alt text](https://github.com/Dramane-dev/tkt-technical-test/blob/master/app-screens/mobile-menu.png?raw=true)
+
+## Link of deployed project :
+
+[Tkt Technical Test](https://dramane.dev/tkt-technical-test)
+
+## First we need to clone the repo :
+
+```ruby
+git clone git@github.com:Dramane-dev/tkt_technical_test.git
+```
+
+## To start the project for a dev server :
+
+```ruby
+npm run start
+```
+
+Then Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## To run with automatically open tab in your browser run :
+
+```ruby
+npm run start-with-browser
+```
 
 ## Code scaffolding
 
