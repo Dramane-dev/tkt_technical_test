@@ -38,76 +38,78 @@
   height: 100%;
   width: 100%;
 
-  .select-buttons-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 2%;
-    margin-top: 5%;
-    margin-bottom: 3%;
-  }
-
-  .board {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 12%;
-    z-index: -1;
-
-    .headers {
+  .dashboard-column {
+    .select-buttons-container {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      width: 80%;
-      margin-bottom: 2.5%;
-      color: var(--tkt-grey);
-      font-weight: 400;
-      font-size: 12px;
-
-      .header-name {
-        margin-right: 27%;
-      }
+      flex-direction: column;
+      margin-left: 2%;
+      margin-top: 5%;
+      margin-bottom: 3%;
     }
 
-    .rows {
+    .board {
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      width: 85%;
-      padding: 3.5%;
-      margin-bottom: 2.5%;
-      border: 1px solid var(--tkt-dark);
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.5s;
-      &:hover {
-        background-color: var(--tkt-super-light-grey);
-        border-color: var(--tkt-blue);
-      }
+      width: 100%;
+      margin-top: 12%;
+      z-index: -1;
 
-      .company-name {
-        width: 30%;
-        margin-right: 3%;
+      .headers {
+        display: flex;
+        flex-direction: row;
         justify-content: flex-start;
-        font-weight: 500;
-        font-size: 12px;
-      }
-
-      .company-siren {
-        font-weight: 500;
-        font-size: 12px;
-      }
-
-      .company-sector {
+        width: 80%;
+        margin-bottom: 2.5%;
+        color: var(--tkt-grey);
         font-weight: 400;
         font-size: 12px;
-        padding: 0.5%;
-        background-color: var(--tkt-blue);
-        color: var(--tkt-white);
-        border: 5px solid var(--tkt-blue);
+
+        .header-name {
+          margin-right: 27%;
+        }
+      }
+
+      .rows {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 85%;
+        padding: 3.5%;
+        margin-bottom: 2.5%;
+        border: 1px solid var(--tkt-dark);
         border-radius: 5px;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          background-color: var(--tkt-super-light-grey);
+          border-color: var(--tkt-blue);
+        }
+
+        .company-name {
+          width: 30%;
+          margin-right: 3%;
+          justify-content: flex-start;
+          font-weight: 500;
+          font-size: 12px;
+        }
+
+        .company-siren {
+          font-weight: 500;
+          font-size: 12px;
+        }
+
+        .company-sector {
+          font-weight: 400;
+          font-size: 12px;
+          padding: 0.5%;
+          background-color: var(--tkt-blue);
+          color: var(--tkt-white);
+          border: 5px solid var(--tkt-blue);
+          border-radius: 5px;
+        }
       }
     }
   }
