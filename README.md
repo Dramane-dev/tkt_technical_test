@@ -15,8 +15,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
      alt="mobile-home"
      src="./app-screens/mobile-home.png"
      style="margin-left: auto; margin-right: auto"
-     width="200" 
-     height="200"
+     width="500" 
+     height="500"
     />
 </p>
 
