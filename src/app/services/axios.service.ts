@@ -17,13 +17,7 @@ export class AxiosService {
     const axiosInstance: AxiosInstance = axios.create({
       baseURL: API_BASE_URL,
       withCredentials: false,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
+      headers: {},
     });
 
     this._setupInterceptorsTo(axiosInstance);
